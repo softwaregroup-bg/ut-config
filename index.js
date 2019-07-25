@@ -69,11 +69,11 @@ function mount(parent, m) {
 }
 
 function load(params = {}) {
+    var argv = require('minimist')(process.argv.slice(2));
     let config = params.config;
     if (Array.isArray(config)) config = merge({}, ...config);
     if (!config) {
         config = {params: {}, version: params.version};
-        var argv = require('minimist')(process.argv.slice(2));
         config.params.app = process.env.UT_APP || params.app || argv._[0] || 'server';
         config.params.method = process.env.UT_METHOD || params.method || argv._[1] || 'debug';
         config.params.env = process.env.UT_ENV || params.env || argv._[2] || 'dev';
