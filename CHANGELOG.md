@@ -1,3 +1,12 @@
+## [7.1.1](https://github.com/softwaregroup-bg/ut-config/compare/v7.1.0...v7.1.1) (2019-07-25)
+
+
+### Bug Fixes
+
+* argv init ([eef9739](https://github.com/softwaregroup-bg/ut-config/commit/eef9739))
+
+
+
 # 7.1.0 (2019-07-25)
 
 
