@@ -120,4 +120,4 @@ function load(params = {}) {
     return convert(rc(config.params.appname, config, argv, parse));
 }
 
-module.exports = {load, edit};
+module.exports = {load, edit, merge};
