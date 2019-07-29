@@ -81,7 +81,7 @@ function load(params = {}) {
         const appPath = path.dirname(params.resolve('./' + config.params.app));
         mount(params.root, config.params.app);
         // load and merge configurations
-        const configFilenames = ['common', config.params.env];
+        const configFilenames = ['common', config.params.method, config.params.env];
         const configs = configFilenames
             .map(filename => {
                 let configPath;
