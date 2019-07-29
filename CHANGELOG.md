@@ -1,3 +1,12 @@
+# [7.3.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.2.0...v7.3.0) (2019-07-29)
+
+
+### Features
+
+* load method specific config ([b4b1496](https://github.com/softwaregroup-bg/ut-config/commit/b4b1496))
+
+
+
 # [7.2.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.1.1...v7.2.0) (2019-07-29)
 
 
