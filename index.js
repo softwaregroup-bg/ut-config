@@ -92,10 +92,10 @@ function load({ params, app, method, env, root, version, resolve, config } = {})
         appname,
         mergeOptions = {},
         implementation = 'ut5'
-    } = merge(configs.map((config = {}) => {
+    } = merge({}, ...configs.map((config = {}) => {
         return {
             appname: config.params && config.params.appname,
-            merge: config.merge,
+            mergeOptions: config.merge,
             implementation: config.implementation
         };
     }));
