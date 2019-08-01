@@ -51,7 +51,7 @@ function mount(parent, m) {
     }
 }
 
-function load(params = {}) {
+function load({ params, app, method, env, root, version, resolve, config } = {}) {
     const argv = require('minimist')(process.argv.slice(2));
     const [_app = 'server', _method = 'debug', _env = 'dev'] = argv._;
     const baseConfig = {
