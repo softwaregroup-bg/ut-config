@@ -53,13 +53,12 @@ function mount(parent, m) {
 
 function load({ params, app, method, env, root, version, resolve, config } = {}) {
     const argv = require('minimist')(process.argv.slice(2));
-    const [_app = 'server', _method = 'debug', _env = 'dev'] = argv._;
     const baseConfig = {
         version,
         params: {
-            app: process.env.UT_APP || app || _app,
-            method: process.env.UT_METHOD || method || _method,
-            env: process.env.UT_ENV || env || _env
+            app: process.env.UT_APP || app || argv._[0] || 'server',
+            method: process.env.UT_METHOD || method || argv._[1] || 'debug',
+            env: process.env.UT_ENV || env || argv._[2] || 'dev'
         }
     };
     baseConfig.service = baseConfig.params.app + '/' + baseConfig.params.env;
