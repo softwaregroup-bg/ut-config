@@ -89,7 +89,7 @@ function load({ params, app, method, env, root, version, resolve, config } = {})
 
     if (params) configs.push(params);
 
-    let { appname,  merge = {}, implementation = 'ut5' } = advancedMerge(configs.map(({
+    let { appname, merge = {}, implementation = 'ut5' } = advancedMerge(configs.map(({
         params: { appname } = {},
         merge,
         implementation
@@ -104,7 +104,6 @@ function load({ params, app, method, env, root, version, resolve, config } = {})
     configs.unshift(baseConfig);
 
     return advancedMerge(configs, {...merge, convert: true});
-
 }
 
-module.exports = {load, edit, merge};
+module.exports = {load, edit, merge: (...args) => advancedMerge(args)};
