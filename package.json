@@ -9,7 +9,7 @@
     "rc": "1.2.8",
     "strip-json-comments": "2.0.1",
     "ut-form-jsonschema": "^7.1.2",
-    "ut-merge": "^0.1.1",
+    "ut-merge": "^1.0.1",
     "yaml": "1.6.0"
   },
   "devDependencies": {

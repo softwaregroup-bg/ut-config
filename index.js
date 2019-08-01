@@ -3,7 +3,7 @@ const yaml = require('yaml');
 const ini = require('ini');
 const stripJsonComments = require('strip-json-comments');
 const rc = require('rc');
-const advancedMerge = require('ut-merge/advancedMerge');
+const merge = require('ut-merge');
 const path = require('path');
 const serverRequire = require;
 const fs = require('fs');
@@ -28,7 +28,7 @@ const edit = ({edit, formData, filename, log, stop = true, validate = false}) =>
         if (!validate) {
             if (filename) {
                 try {
-                    formData = advancedMerge([{}, parse(fs.readFileSync(filename, 'utf-8'))], {convert: true});
+                    formData = merge([{}, parse(fs.readFileSync(filename, 'utf-8'))], {convert: true});
                 } catch (e) {}
             }
             return require('ut-form-jsonschema').edit({
@@ -88,11 +88,17 @@ function load({ params, app, method, env, root, version, resolve, config } = {})
 
     if (params) configs.push(params);
 
-    let { appname, merge = {}, implementation = 'ut5' } = advancedMerge(configs.map(({
-        params: { appname } = {},
-        merge,
-        implementation
-    }) => ({ appname, merge, implementation })));
+    let {
+        appname,
+        mergeOptions = {},
+        implementation = 'ut5'
+    } = merge(configs.map((config = {}) => {
+        return {
+            appname: config.params && config.params.appname,
+            merge: config.merge,
+            implementation: config.implementation
+        };
+    }));
 
     if (!appname) {
         baseConfig.params.appname = appname = `ut_${implementation.replace(/[-/\\]/g, '_')}_${baseConfig.params.env}`;
@@ -102,7 +108,7 @@ function load({ params, app, method, env, root, version, resolve, config } = {})
 
     configs.unshift(baseConfig);
 
-    return advancedMerge(configs, {...merge, convert: true});
+    return merge(configs, {...mergeOptions, convert: true});
 }
 
-module.exports = {load, edit, merge: (...args) => advancedMerge(args)};
+module.exports = {load, edit, merge};
