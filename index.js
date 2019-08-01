@@ -95,7 +95,9 @@ function load({ params, app, method, env, root, version, resolve, config } = {})
         implementation
     }) => ({ appname, merge, implementation })));
 
-    if (!appname) baseConfig.appname = appname = `ut_${implementation.replace(/[-/\\]/g, '_')}_${baseConfig.params.env}`;
+    if (!appname) {
+        baseConfig.params.appname = appname = `ut_${implementation.replace(/[-/\\]/g, '_')}_${baseConfig.params.env}`;
+    }
 
     configs.push(rc(appname, {}, argv, parse));
 
