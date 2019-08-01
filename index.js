@@ -71,7 +71,7 @@ function load({ params, app, method, env, root, version, resolve, config } = {})
         const appPath = path.dirname(resolve('./' + baseConfig.params.app));
         mount(root, baseConfig.params.app);
         // load and merge configurations
-        const configFilenames = ['common', baseConfig.params.env];
+        const configFilenames = ['common', config.params.method, baseConfig.params.env];
         const implConfigs = configFilenames
             .map(filename => {
                 let configPath;
