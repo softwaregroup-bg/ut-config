@@ -1,3 +1,12 @@
+## [7.4.1](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.0...v7.4.1) (2019-08-02)
+
+
+### Bug Fixes
+
+* webpack optimization ([0ec4776](https://github.com/softwaregroup-bg/ut-config/commit/0ec4776))
+
+
+
 # [7.4.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.3.0...v7.4.0) (2019-08-02)
 
 
