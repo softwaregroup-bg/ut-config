@@ -1,14 +1,14 @@
 /* eslint no-process-env:0 */
-const yaml = require('yaml');
-const ini = require('ini');
-const stripJsonComments = require('strip-json-comments');
 const rc = require('rc');
 const merge = require('ut-merge');
 const path = require('path');
-const serverRequire = require;
 const fs = require('fs');
+const serverRequire = require;
 
 function parse(content) {
+    const yaml = serverRequire('yaml');
+    const ini = serverRequire('ini');
+    const stripJsonComments = serverRequire('strip-json-comments');
     if (/^\s*{/.test(content)) return JSON.parse(stripJsonComments(content));
     let result;
     try {

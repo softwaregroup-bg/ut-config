@@ -37,6 +37,12 @@
     "jenkins": "ut-jenkins",
     "gitlab": "ut-gitlab"
   },
+  "browser": {
+    "ajv": false,
+    "yaml": false,
+    "ini": false,
+    "strip-json-comments": false
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:softwaregroup-bg/ut-config.git"
