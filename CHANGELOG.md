@@ -1,3 +1,12 @@
+# [7.4.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.3.0...v7.4.0) (2019-08-02)
+
+
+### Features
+
+* advanced merge ([#1](https://github.com/softwaregroup-bg/ut-config/issues/1)) ([f6ffd4c](https://github.com/softwaregroup-bg/ut-config/commit/f6ffd4c))
+
+
+
 # [7.3.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.2.0...v7.3.0) (2019-07-29)
 
 
