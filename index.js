@@ -16,7 +16,7 @@ function parse(content) {
     } catch (e) {
     }
     if (result && typeof result !== 'string') return result;
-    return ini.parse(content);
+    return merge([{}, ini.parse(content)], {convert: true});
 }
 
 const edit = ({edit, formData, filename, log, stop = true, validate = false}) => {
@@ -52,7 +52,7 @@ function mount(parent, m) {
 }
 
 function load({ params, app, method, env, root, version, resolve, config } = {}) {
-    const argv = require('minimist')(process.argv.slice(2));
+    const argv = merge([{}, require('minimist')(process.argv.slice(2))], {convert: true});
     const baseConfig = {
         version,
         params: {
@@ -108,7 +108,7 @@ function load({ params, app, method, env, root, version, resolve, config } = {})
 
     configs.unshift(baseConfig);
 
-    return merge(configs, {...mergeOptions, convert: true});
+    return merge(configs, mergeOptions);
 }
 
 module.exports = {load, edit, merge};
