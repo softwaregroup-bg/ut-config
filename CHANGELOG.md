@@ -1,3 +1,12 @@
+## [7.4.2](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.1...v7.4.2) (2019-08-09)
+
+
+### Bug Fixes
+
+* convert args and ini only ([#2](https://github.com/softwaregroup-bg/ut-config/issues/2)) ([d95ee26](https://github.com/softwaregroup-bg/ut-config/commit/d95ee26))
+
+
+
 ## [7.4.1](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.0...v7.4.1) (2019-08-02)
 
 
