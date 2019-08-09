@@ -28,7 +28,7 @@ const edit = ({edit, formData, filename, log, stop = true, validate = false}) =>
         if (!validate) {
             if (filename) {
                 try {
-                    formData = merge([{}, parse(fs.readFileSync(filename, 'utf-8'))], {convert: true});
+                    formData = parse(fs.readFileSync(filename, 'utf-8'));
                 } catch (e) {}
             }
             return require('ut-form-jsonschema').edit({
