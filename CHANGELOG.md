@@ -1,3 +1,12 @@
+## [7.4.3](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.2...v7.4.3) (2019-09-05)
+
+
+### Bug Fixes
+
+* update deps ([7558a82](https://github.com/softwaregroup-bg/ut-config/commit/7558a82))
+
+
+
 ## [7.4.2](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.1...v7.4.2) (2019-08-09)
 
 
