@@ -1,3 +1,7 @@
+## [7.4.4](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.3...v7.4.4) (2019-09-13)
+
+
+
 ## [7.4.3](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.2...v7.4.3) (2019-09-05)
 
 
