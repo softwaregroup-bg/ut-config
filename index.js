@@ -1,6 +1,6 @@
 /* eslint no-process-env:0 */
 const rc = require('rc');
-const merge = require('ut-merge');
+const merge = require('ut-function.merge');
 const path = require('path');
 const fs = require('fs');
 const serverRequire = require;
