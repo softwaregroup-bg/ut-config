@@ -2,7 +2,7 @@
 
 Reusable configuration `load` and `edit` methods.
 
-## Recommended project structure
+## Starting
 
 `ut-config` assumes the application is being run with a command like
 
