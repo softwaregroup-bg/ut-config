@@ -61,7 +61,7 @@ function load({ params, app, method, env, root, version, resolve, config } = {})
             env: process.env.UT_ENV || env || argv._[2] || 'dev'
         }
     };
-    baseConfig.service = baseConfig.params.app + '/' + baseConfig.params.env;
+    baseConfig.service = baseConfig.params.app;
     const configs = [];
     if (config) {
         if (Array.isArray(config)) configs.push(...config);
