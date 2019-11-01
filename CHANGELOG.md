@@ -1,3 +1,12 @@
+## [7.4.7](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.6...v7.4.7) (2019-11-01)
+
+
+### Bug Fixes
+
+* remove env from default service name ([27adf83](https://github.com/softwaregroup-bg/ut-config/commit/27adf83))
+
+
+
 ## [7.4.6](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.5...v7.4.6) (2019-10-25)
 
 
