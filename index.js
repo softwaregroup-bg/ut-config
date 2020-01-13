@@ -1,9 +1,26 @@
 /* eslint no-process-env:0 */
 const rc = require('rc');
 const merge = require('ut-function.merge');
+const template = require('ut-function.template');
 const path = require('path');
 const fs = require('fs');
 const serverRequire = require;
+
+function interpolate(what = {}, context = {}) {
+    Object.entries(what).forEach(([key, value]) => {
+        switch (typeof value) {
+            case 'object':
+                if (value !== null) interpolate(value, context);
+                break;
+            case 'string':
+                what[key] = template(value, context);
+                break;
+            default:
+                break;
+        }
+    });
+    return what;
+}
 
 function parse(content) {
     const yaml = serverRequire('yaml');
@@ -51,7 +68,7 @@ function mount(parent, m) {
     }
 }
 
-function load({ params, app, method, env, root, version, resolve, config } = {}) {
+function load({ params, app, method, env, root, version, resolve, config, context } = {}) {
     const argv = merge([{}, require('minimist')(process.argv.slice(2))], {convert: true});
     const baseConfig = {
         version,
@@ -108,7 +125,7 @@ function load({ params, app, method, env, root, version, resolve, config } = {})
 
     configs.unshift(baseConfig);
 
-    return merge(configs, mergeOptions);
+    return interpolate(merge(configs, mergeOptions), context);
 }
 
 module.exports = {load, edit, merge};
