@@ -1,6 +1,7 @@
 /* eslint no-process-env:0 */
 const rc = require('rc');
 const merge = require('ut-function.merge');
+const template = require('ut-function.template');
 const path = require('path');
 const fs = require('fs');
 const serverRequire = require;
@@ -51,7 +52,7 @@ function mount(parent, m) {
     }
 }
 
-function load({ params, app, method, env, root, version, resolve, config } = {}) {
+function load({ params, app, method, env, root, version, resolve, config, context } = {}) {
     const argv = merge([{}, require('minimist')(process.argv.slice(2))], {convert: true});
     const baseConfig = {
         version,
@@ -108,7 +109,10 @@ function load({ params, app, method, env, root, version, resolve, config } = {})
 
     configs.unshift(baseConfig);
 
-    return merge(configs, mergeOptions);
+    return template(merge(configs, mergeOptions), {
+        ...context,
+        ...process.env.UT_MASTER_KEY && serverRequire('ut-function.cbc')(process.env.UT_MASTER_KEY)
+    });
 }
 
 module.exports = {load, edit, merge};

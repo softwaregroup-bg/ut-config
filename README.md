@@ -44,7 +44,7 @@ This is adapted from `rc` package readme:
 - the object taken from environment configuration file within {app} / UT_APP folder
   (dev.js[on], test.js[on], etc.)
 - the object taken from method configuration file within {app} / UT_APP folder
-  (debog.js[on], install.js[on])
+  (debug.js[on], install.js[on])
 - the object taken from common.js[on] configuration file within {app} / UT_APP folder
 
 All configuration sources that were found will be flattened into one object,
