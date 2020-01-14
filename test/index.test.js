@@ -13,8 +13,14 @@ const cipher = crypto.createCipheriv(algorithm, key, iv);
 let encrypted = cipher.update('test', 'utf8', 'hex');
 encrypted += cipher.final('hex');
 
+const clean = obj => {
+    delete obj.params.appname;
+    delete obj.params.env;
+    return sortKeys(obj);
+};
+
 tap.test('load', assert => {
-    assert.matchSnapshot(sortKeys(load({
+    assert.matchSnapshot(clean(load({
         config: {
             a: [`\${decrypt('${encrypted}')}`, 'ordinary string'],
             b: `\${decrypt('${encrypted}')}`,
@@ -29,7 +35,7 @@ tap.test('load', assert => {
         }
     }), {deep: true}), 'decrypt');
 
-    assert.matchSnapshot(sortKeys(load({
+    assert.matchSnapshot(clean(load({
         config: {
             a: [`\${decrypt('${encrypted}')}`, '${custom("ordinary string")}'],
             b: `\${custom(decrypt('${encrypted}'))}`,

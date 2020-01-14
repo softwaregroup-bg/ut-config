@@ -25,8 +25,6 @@ Object {
   },
   "params": Object {
     "app": "server",
-    "appname": "ut_ut5_dev",
-    "env": "dev",
     "method": "debug",
   },
   "service": "server",
@@ -54,8 +52,6 @@ Object {
   },
   "params": Object {
     "app": "server",
-    "appname": "ut_ut5_dev",
-    "env": "dev",
     "method": "debug",
   },
   "service": "server",
