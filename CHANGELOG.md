@@ -1,3 +1,12 @@
+# [7.5.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.7...v7.5.0) (2020-01-14)
+
+
+### Features
+
+* process config through template engine ([#3](https://github.com/softwaregroup-bg/ut-config/issues/3)) ([7a91921](https://github.com/softwaregroup-bg/ut-config/commit/7a91921))
+
+
+
 ## [7.4.7](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.6...v7.4.7) (2019-11-01)
 
 
