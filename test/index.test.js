@@ -2,7 +2,7 @@
 const tap = require('tap');
 const { load } = require('..');
 const sortKeys = require('sort-keys');
-const key = process.env.UT_DECRYPT_KEY = '757435736f66747761726567726f7570757435736f66747761726567726f7570';
+const key = process.env.UT_MASTER_KEY = '757435736f66747761726567726f7570757435736f66747761726567726f7570';
 const cbc = require('ut-function.cbc')(key);
 const encrypt = str => cbc.encrypt(str).toString('hex');
 

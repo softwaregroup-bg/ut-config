@@ -111,7 +111,7 @@ function load({ params, app, method, env, root, version, resolve, config, contex
 
     return template(merge(configs, mergeOptions), {
         ...context,
-        ...process.env.UT_DECRYPT_KEY && serverRequire('ut-function.cbc')(process.env.UT_DECRYPT_KEY)
+        ...process.env.UT_MASTER_KEY && serverRequire('ut-function.cbc')(process.env.UT_MASTER_KEY)
     });
 }
 
