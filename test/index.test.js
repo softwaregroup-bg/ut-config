@@ -1,6 +1,6 @@
 /*  eslint no-process-env: 0, no-template-curly-in-string: 0 */
 const tap = require('tap');
-const { load } = require('.');
+const { load } = require('..');
 const sortKeys = require('sort-keys');
 const crypto = require('crypto');
 

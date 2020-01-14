@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`index.test.js TAP load > custom context 1`] = `
+exports[`test/index.test.js TAP load > custom context 1`] = `
 Object {
   "_": Array [],
   "a": Array [
@@ -34,7 +34,7 @@ Object {
 }
 `
 
-exports[`index.test.js TAP load > decrypt 1`] = `
+exports[`test/index.test.js TAP load > decrypt 1`] = `
 Object {
   "_": Array [],
   "a": Array [
