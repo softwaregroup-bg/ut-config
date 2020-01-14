@@ -6,22 +6,6 @@ const path = require('path');
 const fs = require('fs');
 const serverRequire = require;
 
-function interpolate(what = {}, context = {}) {
-    Object.entries(what).forEach(([key, value]) => {
-        switch (typeof value) {
-            case 'object':
-                if (value !== null) interpolate(value, context);
-                break;
-            case 'string':
-                what[key] = template(value, context);
-                break;
-            default:
-                break;
-        }
-    });
-    return what;
-}
-
 function parse(content) {
     const yaml = serverRequire('yaml');
     const ini = serverRequire('ini');
@@ -125,7 +109,22 @@ function load({ params, app, method, env, root, version, resolve, config, contex
 
     configs.unshift(baseConfig);
 
-    return interpolate(merge(configs, mergeOptions), context);
+    const templateVariables = {...context};
+    if (process.env.UT_DECRYPT_PASSWORD) {
+        const crypto = serverRequire('crypto');
+        const {
+            UT_DECRYPT_ALGORITHM: algorithm = 'aes-256-cbc',
+            UT_DECRYPT_PASSWORD: password,
+            UT_DECRYPT_IV: iv = 'ut5softwaregroup'
+        } = process.env;
+        templateVariables.decrypt = encrypted => {
+            const decipher = crypto.createDecipheriv(algorithm, password, iv);
+            const decrypted = decipher.update(encrypted, 'hex', 'utf8');
+            return decrypted + decipher.final('utf8');
+        };
+    }
+
+    return template(merge(configs, mergeOptions), templateVariables);
 }
 
 module.exports = {load, edit, merge};
