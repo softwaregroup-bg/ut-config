@@ -109,22 +109,10 @@ function load({ params, app, method, env, root, version, resolve, config, contex
 
     configs.unshift(baseConfig);
 
-    const templateVariables = {...context};
-    if (process.env.UT_DECRYPT_KEY) {
-        const crypto = serverRequire('crypto');
-        const {
-            UT_DECRYPT_ALGORITHM: algorithm = 'aes-256-cbc',
-            UT_DECRYPT_KEY: key,
-            UT_DECRYPT_IV: iv = 'ut5softwaregroup'
-        } = process.env;
-        templateVariables.decrypt = encrypted => {
-            const decipher = crypto.createDecipheriv(algorithm, key, iv);
-            const decrypted = decipher.update(encrypted, 'hex', 'utf8');
-            return decrypted + decipher.final('utf8');
-        };
-    }
-
-    return template(merge(configs, mergeOptions), templateVariables);
+    return template(merge(configs, mergeOptions), {
+        ...context,
+        ...process.env.UT_DECRYPT_KEY && serverRequire('ut-function.cbc')(process.env.UT_DECRYPT_KEY)
+    });
 }
 
 module.exports = {load, edit, merge};

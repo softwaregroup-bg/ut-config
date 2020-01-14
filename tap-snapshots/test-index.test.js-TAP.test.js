@@ -9,12 +9,12 @@ exports[`test/index.test.js TAP load > custom context 1`] = `
 Object {
   "_": Array [],
   "a": Array [
-    "test",
+    "a.0",
     "ordinary string - custom",
   ],
-  "b": "test - custom",
+  "b": "b - custom",
   "c": Object {
-    "d": "test",
+    "d": "c.d",
     "e": Array [
       "ordinary string",
     ],
@@ -36,12 +36,12 @@ exports[`test/index.test.js TAP load > decrypt 1`] = `
 Object {
   "_": Array [],
   "a": Array [
-    "test",
+    "a.0",
     "ordinary string",
   ],
-  "b": "test",
+  "b": "b",
   "c": Object {
-    "d": "test",
+    "d": "c.d",
     "e": Array [
       "ordinary string",
     ],

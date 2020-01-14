@@ -9,7 +9,8 @@
     "rc": "1.2.8",
     "strip-json-comments": "2.0.1",
     "ut-form-jsonschema": "^7.1.3",
-    "ut-function.merge": "^1.2.0",
+    "ut-function.cbc": "^1.1.0",
+    "ut-function.merge": "^1.5.0",
     "ut-function.template": "^1.6.0",
     "yaml": "1.6.0"
   },
@@ -41,9 +42,10 @@
   },
   "browser": {
     "ajv": false,
-    "yaml": false,
     "ini": false,
-    "strip-json-comments": false
+    "strip-json-comments": false,
+    "ut-function.cbc": false,
+    "yaml": false
   },
   "repository": {
     "type": "git",

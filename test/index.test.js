@@ -2,16 +2,9 @@
 const tap = require('tap');
 const { load } = require('..');
 const sortKeys = require('sort-keys');
-const crypto = require('crypto');
-
-const algorithm = process.env.UT_DECRYPT_ALGORITHM = 'aes-256-cbc';
-const key = process.env.UT_DECRYPT_KEY = '12345678901234567890123456789012';
-const iv = process.env.UT_DECRYPT_IV = '1234567890123456';
-
-const cipher = crypto.createCipheriv(algorithm, key, iv);
-
-let encrypted = cipher.update('test', 'utf8', 'hex');
-encrypted += cipher.final('hex');
+const key = process.env.UT_DECRYPT_KEY = '757435736f66747761726567726f7570757435736f66747761726567726f7570';
+const cbc = require('ut-function.cbc')(key);
+const encrypt = str => cbc.encrypt(str).toString('hex');
 
 const clean = obj => {
     delete obj.params.appname;
@@ -22,10 +15,10 @@ const clean = obj => {
 tap.test('load', assert => {
     assert.matchSnapshot(clean(load({
         config: {
-            a: [`\${decrypt('${encrypted}')}`, 'ordinary string'],
-            b: `\${decrypt('${encrypted}')}`,
+            a: [`\${decrypt('${encrypt('a.0')}')}`, 'ordinary string'],
+            b: `\${decrypt('${encrypt('b')}')}`,
             c: {
-                d: `\${decrypt('${encrypted}')}`,
+                d: `\${decrypt('${encrypt('c.d')}')}`,
                 e: ['ordinary string'],
                 f: 'ordinary string',
                 g: {
@@ -37,10 +30,10 @@ tap.test('load', assert => {
 
     assert.matchSnapshot(clean(load({
         config: {
-            a: [`\${decrypt('${encrypted}')}`, '${custom("ordinary string")}'],
-            b: `\${custom(decrypt('${encrypted}'))}`,
+            a: [`\${decrypt('${encrypt('a.0')}')}`, '${custom("ordinary string")}'],
+            b: `\${custom(decrypt('${encrypt('b')}'))}`,
             c: {
-                d: `\${decrypt('${encrypted}')}`,
+                d: `\${decrypt('${encrypt('c.d')}')}`,
                 e: ['ordinary string'],
                 f: 'ordinary string',
                 g: {
