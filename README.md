@@ -79,7 +79,9 @@ supported by JSON. Minimal environment file `dev.json` may look like:
 
 After all configurations have been loaded and merged
 into a common object it gets processed through a
-template engine. For more info check [ut-function.template](https://github.com/softwaregroup-bg/ut-function/tree/master/packages/template) and in particular the provided
+template engine. For more info check
+[ut-function.template](https://github.com/softwaregroup-bg/ut-function/tree/master/packages/template)
+and in particular the provided
 [recursive rendering](https://github.com/softwaregroup-bg/ut-function/tree/master/packages/template#recursive-rendering)
 functionalities.
 
