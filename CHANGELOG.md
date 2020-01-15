@@ -1,3 +1,13 @@
+## [7.5.1](https://github.com/softwaregroup-bg/ut-config/compare/v7.5.0...v7.5.1) (2020-01-15)
+
+
+### Bug Fixes
+
+* run template only if necessarry ([c569cdb](https://github.com/softwaregroup-bg/ut-config/commit/c569cdb))
+* templating condition ([8238faa](https://github.com/softwaregroup-bg/ut-config/commit/8238faa))
+
+
+
 # [7.5.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.4.7...v7.5.0) (2020-01-14)
 
 
