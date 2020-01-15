@@ -109,7 +109,7 @@ function load({ params, app, method, env, root, version, resolve, config, contex
 
     configs.unshift(baseConfig);
 
-    if (!context || !process.env.UT_MASTER_KEY) return merge(configs, mergeOptions);
+    if (!context && !process.env.UT_MASTER_KEY) return merge(configs, mergeOptions);
 
     return template(merge(configs, mergeOptions), {
         ...context,
