@@ -30,14 +30,14 @@ tap.test('load', assert => {
 
     assert.matchSnapshot(clean(load({
         config: {
-            a: [`\${decrypt('${encrypt('a.0')}')}`, '${custom("ordinary string")}'],
+            a: [`\${decrypt('${encrypt('a.0')}')}`, '${custom(\'ordinary string\')}'],
             b: `\${custom(decrypt('${encrypt('b')}'))}`,
             c: {
                 d: `\${decrypt('${encrypt('c.d')}')}`,
                 e: ['ordinary string'],
                 f: 'ordinary string',
                 g: {
-                    h: '${custom("ordinary string")}'
+                    h: '${custom(\'ordinary string\')}'
                 }
             }
         },
