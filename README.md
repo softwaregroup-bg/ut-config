@@ -74,3 +74,56 @@ supported by JSON. Minimal environment file `dev.json` may look like:
     "service": "admin"
 }
 ```
+
+### Templating
+
+After all configurations have been loaded and merged
+into a common object it gets processed through a
+template engine. For more info check [ut-function.template](https://github.com/softwaregroup-bg/ut-function/tree/master/packages/template) and in particular the provided
+[recursive rendering](https://github.com/softwaregroup-bg/ut-function/tree/master/packages/template#recursive-rendering)
+functionalities.
+
+E.g.
+
+```js
+const obj = require('ut-config').load({
+    config: {
+        x: 'normal string',
+        y: '${hello("Test1")}',
+        z: '${hello(test)}'
+    },
+    context: {
+        hello: who => 'Hello ' + who + ' !!!',
+        test: 'Test2'
+    }
+});
+
+// obj.y would be equal to 'Hello Test1 !!!'
+// obj.z would be equal to 'Hello Test2 !!!'
+```
+
+Everything that is passed in the `context`
+object is accessible as a context in the config through
+the template engine.
+
+The context is additionally enriched with
+`encrypt` and `decrypt` methods (this is only in case
+`UT_MASTER_KEY` is available as environment variable which
+is currently being set by Jenkins).
+So if you have the correct master key you can
+securely define encrypted passwords and other sensitive
+data in the config.
+
+E.g.
+
+```js
+/*
+  note that the context is not mandatory if you need to use
+  only the built-in encrypt/decrypt methods
+*/
+const obj = require('ut-config').load({
+    config: {
+        pass: '${decrypt("3569bf662a23fad6eb2069e09e8da490dff37a84e69a5eb82a1efecf9f8fcdb2")}'
+    }
+});
+```
