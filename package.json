@@ -45,7 +45,8 @@
     "ini": false,
     "strip-json-comments": false,
     "ut-function.cbc": false,
-    "yaml": false
+    "yaml": false,
+    "rc": "./rc.js"
   },
   "repository": {
     "type": "git",
