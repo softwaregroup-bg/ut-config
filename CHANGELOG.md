@@ -1,3 +1,12 @@
+## [7.5.5](https://github.com/softwaregroup-bg/ut-config/compare/v7.5.4...v7.5.5) (2020-07-13)
+
+
+### Bug Fixes
+
+* webpack warnings ([b46593c](https://github.com/softwaregroup-bg/ut-config/commit/b46593c196d5bba544b2c8fb87507c4f4426939b))
+
+
+
 ## [7.5.4](https://github.com/softwaregroup-bg/ut-config/compare/v7.5.3...v7.5.4) (2020-07-06)
 
 
