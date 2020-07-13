@@ -41,6 +41,7 @@
     "gitlab": "ut-gitlab"
   },
   "browser": {
+    "./serverRequire": false,
     "ajv": false,
     "ini": false,
     "strip-json-comments": false,

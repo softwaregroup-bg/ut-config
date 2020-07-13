@@ -4,12 +4,11 @@ const merge = require('ut-function.merge');
 const template = require('ut-function.template');
 const path = require('path');
 const fs = require('fs');
-const serverRequire = require;
 
 function parse(content) {
-    const yaml = serverRequire('yaml');
-    const ini = serverRequire('ini');
-    const stripJsonComments = serverRequire('strip-json-comments');
+    const yaml = require('yaml');
+    const ini = require('ini');
+    const stripJsonComments = require('strip-json-comments');
     if (/^\s*{/.test(content)) return JSON.parse(stripJsonComments(content));
     let result;
     try {
@@ -23,7 +22,7 @@ function parse(content) {
 const edit = ({edit, formData, filename, log, stop = true, validate = false}) => {
     if (edit) {
         if (validate && edit.schema) {
-            const Ajv = serverRequire('ajv');
+            const Ajv = require('ajv');
             validate = new Ajv().compile(edit.schema)(formData);
         }
         if (!validate) {
@@ -44,8 +43,8 @@ const edit = ({edit, formData, filename, log, stop = true, validate = false}) =>
 
 function mount(parent, m) {
     if (m && process.pkg) {
-        var fs = require('fs');
-        var path = require('path');
+        const fs = require('fs');
+        const path = require('path');
         if (fs.existsSync(path.resolve(m))) {
             process.pkg.mount(path.resolve(path.dirname(parent.filename), m), path.resolve(m));
         }
@@ -76,9 +75,9 @@ function load({ params, app, method, env, root, version, resolve, config, contex
             .map(filename => {
                 let configPath;
                 try {
-                    configPath = require.resolve(path.join(appPath, filename));
+                    configPath = require('./serverRequire').resolve(path.join(appPath, filename));
                 } catch (e) {}
-                return configPath && require(configPath);
+                return configPath && require('./serverRequire')(configPath);
             })
             .filter(x => x);
         if (!implConfigs.length) {
@@ -113,7 +112,7 @@ function load({ params, app, method, env, root, version, resolve, config, contex
 
     return template(merge(configs, mergeOptions), {
         ...context,
-        ...process.env.UT_MASTER_KEY && serverRequire('ut-function.cbc')(process.env.UT_MASTER_KEY)
+        ...process.env.UT_MASTER_KEY && require('ut-function.cbc')(process.env.UT_MASTER_KEY)
     });
 }
 
