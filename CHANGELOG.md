@@ -1,3 +1,12 @@
+# [7.6.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.5.5...v7.6.0) (2020-09-17)
+
+
+### Features
+
+* merge configs passed with --overlay ([68b6a21](https://github.com/softwaregroup-bg/ut-config/commit/68b6a2175f3c1c961d63b8af4811395ba82dd33c))
+
+
+
 ## [7.5.5](https://github.com/softwaregroup-bg/ut-config/compare/v7.5.4...v7.5.5) (2020-07-13)
 
 
