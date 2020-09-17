@@ -70,8 +70,9 @@ function load({ params, app, method, env, root, version, resolve, config, contex
         const appPath = path.dirname(resolve('./' + baseConfig.params.app));
         mount(root, baseConfig.params.app);
         // load and merge configurations
-        const configFilenames = ['common', baseConfig.params.method, baseConfig.params.env];
+        const configFilenames = ['common', baseConfig.params.method, baseConfig.params.env].concat(argv.overlay);
         const implConfigs = configFilenames
+            .filter(Boolean)
             .map(filename => {
                 let configPath;
                 try {
@@ -79,7 +80,7 @@ function load({ params, app, method, env, root, version, resolve, config, contex
                 } catch (e) {}
                 return configPath && require('./serverRequire')(configPath);
             })
-            .filter(x => x);
+            .filter(Boolean);
         if (!implConfigs.length) {
             throw new Error(`${configFilenames.join(' and/or ')} configuration must be provided`);
         }
