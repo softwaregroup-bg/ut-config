@@ -1,3 +1,7 @@
+## [7.6.1](https://github.com/softwaregroup-bg/ut-config/compare/v7.6.0...v7.6.1) (2020-10-28)
+
+
+
 # [7.6.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.5.5...v7.6.0) (2020-09-17)
 
 
