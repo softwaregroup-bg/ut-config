@@ -1,3 +1,12 @@
+# [7.7.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.6.1...v7.7.0) (2020-11-13)
+
+
+### Features
+
+* retain config file names ([12fca5d](https://github.com/softwaregroup-bg/ut-config/commit/12fca5d2a0962d37ff55715a16e1d4456c1fefb9))
+
+
+
 ## [7.6.1](https://github.com/softwaregroup-bg/ut-config/compare/v7.6.0...v7.6.1) (2020-10-28)
 
 
