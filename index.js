@@ -70,9 +70,9 @@ function load({ params, app, method, env, root, version, resolve, config, contex
         const appPath = path.dirname(resolve('./' + baseConfig.params.app));
         mount(root, baseConfig.params.app);
         // load and merge configurations
-        const configFilenames = ['common', baseConfig.params.method, baseConfig.params.env].concat(argv.overlay);
+        const configFilenames = ['common', baseConfig.params.method, baseConfig.params.env].concat(argv.overlay).filter(Boolean);
+        configs.push({configFilenames});
         const implConfigs = configFilenames
-            .filter(Boolean)
             .map(filename => {
                 let configPath;
                 try {
