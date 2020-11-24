@@ -11,12 +11,18 @@ function parse(content) {
     const stripJsonComments = require('strip-json-comments');
     if (/^\s*{/.test(content)) return JSON.parse(stripJsonComments(content));
     let result;
+    let yamlError;
     try {
         result = yaml.parse(content);
-    } catch (e) {
+    } catch (error) {
+        yamlError = error;
+        delete yamlError.source;
     }
     if (result && typeof result !== 'string') return result;
-    return merge([{}, ini.parse(content)], {convert: true});
+    const parsedIni = ini.parse(content);
+    // ini with : in configuration keys is most likely yaml, throw the yaml parse error
+    if (yamlError && Object.keys(parsedIni).find(key => key.includes(':'))) throw yamlError;
+    return merge([{}, parsedIni], {convert: true});
 }
 
 const edit = ({edit, formData, filename, log, stop = true, validate = false}) => {
