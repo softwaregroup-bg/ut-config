@@ -1,3 +1,12 @@
+## [7.7.1](https://github.com/softwaregroup-bg/ut-config/compare/v7.7.0...v7.7.1) (2020-11-24)
+
+
+### Bug Fixes
+
+* throw yaml parse errors ([2b4e194](https://github.com/softwaregroup-bg/ut-config/commit/2b4e194d0ced09b050609434b30d7b72f72bf121))
+
+
+
 # [7.7.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.6.1...v7.7.0) (2020-11-13)
 
 
