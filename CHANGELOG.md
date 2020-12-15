@@ -1,3 +1,12 @@
+## [7.7.2](https://github.com/softwaregroup-bg/ut-config/compare/v7.7.1...v7.7.2) (2020-12-15)
+
+
+### Bug Fixes
+
+* update ini ([bf29eb6](https://github.com/softwaregroup-bg/ut-config/commit/bf29eb697d9a1062ff7ca1aae773f447c3e60142))
+
+
+
 ## [7.7.1](https://github.com/softwaregroup-bg/ut-config/compare/v7.7.0...v7.7.1) (2020-11-24)
 
 
