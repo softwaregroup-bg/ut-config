@@ -20,7 +20,7 @@ function parse(content) {
     }
     if (result && typeof result !== 'string') return result;
     const parsedIni = ini.parse(content);
-    // ini with : in configuration keys is most likely yaml, throw the yaml parse error
+    // ini with keys containing ':' is most likely yaml, throw the yaml parse error
     if (yamlError && Object.keys(parsedIni).find(key => key.includes(':'))) throw yamlError;
     return merge([{}, parsedIni], {convert: true});
 }
