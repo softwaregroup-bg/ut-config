@@ -15,8 +15,8 @@
     "yaml": "1.10.0"
   },
   "devDependencies": {
-    "tap": "^14.10.8",
-    "ut-tools": "^6.35.2",
+    "tap": "^15.0.9",
+    "ut-tools": "^6.38.1",
     "sort-keys": "4.1.0"
   },
   "peerDependencies": {},
