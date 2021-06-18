@@ -1,3 +1,12 @@
+## [7.7.3](https://github.com/softwaregroup-bg/ut-config/compare/v7.7.2...v7.7.3) (2021-06-18)
+
+
+### Bug Fixes
+
+* webpack [UTCORE-121] ([a15e4f2](https://github.com/softwaregroup-bg/ut-config/commit/a15e4f21c26f1e4d603f1af054fdd68a0bbe83ad))
+
+
+
 ## [7.7.2](https://github.com/softwaregroup-bg/ut-config/compare/v7.7.1...v7.7.2) (2020-12-15)
 
 
