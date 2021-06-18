@@ -3,7 +3,6 @@ const rc = require('rc');
 const merge = require('ut-function.merge');
 const template = require('ut-function.template');
 const path = require('path');
-const fs = require('fs');
 
 function parse(content) {
     const yaml = require('yaml');
@@ -34,6 +33,7 @@ const edit = ({edit, formData, filename, log, stop = true, validate = false}) =>
         if (!validate) {
             if (filename) {
                 try {
+                    const fs = require('fs');
                     formData = parse(fs.readFileSync(filename, 'utf-8'));
                 } catch (e) {}
             }

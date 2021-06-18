@@ -42,6 +42,7 @@
   },
   "browser": {
     "./serverRequire": false,
+    "fs": false,
     "ajv": false,
     "ini": false,
     "strip-json-comments": false,
