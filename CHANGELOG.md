@@ -1,3 +1,12 @@
+# [7.8.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.7.3...v7.8.0) (2021-08-28)
+
+
+### Features
+
+* load configuration from the browser ([eddfd82](https://github.com/softwaregroup-bg/ut-config/commit/eddfd82fa88f5f3734a263f6206b2cfbbb57ee20))
+
+
+
 ## [7.7.3](https://github.com/softwaregroup-bg/ut-config/compare/v7.7.2...v7.7.3) (2021-06-18)
 
 
