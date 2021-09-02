@@ -57,6 +57,8 @@ function mount(parent, m) {
     }
 }
 
+const getRcName = (name, env) => `ut_${name.replace(/[-/\\]/g, '_')}_${env}`;
+
 function load({ params, app, method, env, root, version, resolve, config, context, defaultConfig, defaultOverlays } = {}) {
     const argv = merge([{}, require('minimist')(process.argv.slice(2))], {convert: true});
     const baseConfig = {
@@ -107,11 +109,12 @@ function load({ params, app, method, env, root, version, resolve, config, contex
         };
     }));
 
-    if (!appname) {
-        baseConfig.params.appname = appname = `ut_${implementation.replace(/[-/\\]/g, '_')}_${baseConfig.params.env}`;
-    }
+    if (!appname) baseConfig.params.appname = appname = getRcName(implementation, baseConfig.params.env);
 
-    configs.push(rc(appname, {}, argv, parse));
+    configs.push(
+        rc(appname, {}, argv, parse),
+        ...[].concat(defaultOverlays).filter(Boolean).map(overlay => rc(getRcName(overlay, baseConfig.params.env), {}, argv, parse))
+    );
 
     configs.unshift(baseConfig);
 
