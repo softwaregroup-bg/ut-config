@@ -1,3 +1,12 @@
+# [7.9.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.8.0...v7.9.0) (2021-09-02)
+
+
+### Features
+
+* accept defaults through parameters ([7c1fb60](https://github.com/softwaregroup-bg/ut-config/commit/7c1fb60f796cf996583266a3e4910b6e9d00d984))
+
+
+
 # [7.8.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.7.3...v7.8.0) (2021-08-28)
 
 
