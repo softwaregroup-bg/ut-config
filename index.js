@@ -57,7 +57,7 @@ function mount(parent, m) {
     }
 }
 
-function load({ params, app, method, env, root, version, resolve, config, context } = {}) {
+function load({ params, app, method, env, root, version, resolve, config, context, defaultConfig, defaultOverlays } = {}) {
     const argv = merge([{}, require('minimist')(process.argv.slice(2))], {convert: true});
     const baseConfig = {
         version,
@@ -68,7 +68,7 @@ function load({ params, app, method, env, root, version, resolve, config, contex
         }
     };
     baseConfig.service = baseConfig.params.app;
-    const configs = [];
+    const configs = [defaultConfig].filter(Boolean);
     if (config) {
         if (Array.isArray(config)) configs.push(...config);
         else configs.push(config);
@@ -76,7 +76,7 @@ function load({ params, app, method, env, root, version, resolve, config, contex
         const appPath = path.dirname(resolve('./' + baseConfig.params.app));
         mount(root, baseConfig.params.app);
         // load and merge configurations
-        const configFilenames = ['common', baseConfig.params.method, baseConfig.params.env].concat(argv.overlay).filter(Boolean);
+        const configFilenames = ['common', baseConfig.params.method, baseConfig.params.env].concat(defaultOverlays).concat(argv.overlay).filter(Boolean);
         configs.push({configFilenames});
         const implConfigs = configFilenames
             .map(filename => {
