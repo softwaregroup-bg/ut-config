@@ -1,3 +1,12 @@
+## [7.9.1](https://github.com/softwaregroup-bg/ut-config/compare/v7.9.0...v7.9.1) (2021-09-03)
+
+
+### Bug Fixes
+
+* provide possibility to define common rc files ([#6](https://github.com/softwaregroup-bg/ut-config/issues/6)) ([69f0de2](https://github.com/softwaregroup-bg/ut-config/commit/69f0de23464ad81d25ae2660f155e8d5b7ad06fc))
+
+
+
 # [7.9.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.8.0...v7.9.0) (2021-09-02)
 
 
