@@ -111,8 +111,8 @@ function load({ params, app, method, env, root, version, resolve, config, contex
         baseConfig.params.appname = appname = `ut_${implementation.replace(/[-/\\]/g, '_')}_${baseConfig.params.env}`;
     }
 
-    configs.push(rc(appname, {}, argv, parse));
     configs.push(rc(`ut_${baseConfig.params.env}`, {}, argv, parse));
+    configs.push(rc(appname, {}, argv, parse));
 
     configs.unshift(baseConfig);
 
