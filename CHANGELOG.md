@@ -1,3 +1,12 @@
+## [7.9.2](https://github.com/softwaregroup-bg/ut-config/compare/v7.9.1...v7.9.2) (2021-09-05)
+
+
+### Bug Fixes
+
+* config precedence ([ce82291](https://github.com/softwaregroup-bg/ut-config/commit/ce8229174d63fc2d4afa808ef4add4af804e7429))
+
+
+
 ## [7.9.1](https://github.com/softwaregroup-bg/ut-config/compare/v7.9.0...v7.9.1) (2021-09-03)
 
 
