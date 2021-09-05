@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "tap": "^15.0.9",
-    "ut-tools": "^6.38.1",
+    "ut-tools": "^6.39.0",
     "sort-keys": "4.1.0"
   },
   "peerDependencies": {},
