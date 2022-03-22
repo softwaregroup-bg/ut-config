@@ -1,3 +1,12 @@
+## [7.9.3](https://github.com/softwaregroup-bg/ut-config/compare/v7.9.2...v7.9.3) (2022-03-22)
+
+
+### Bug Fixes
+
+* update ajv, minimist ([cc8659d](https://github.com/softwaregroup-bg/ut-config/commit/cc8659dfb16c89e800a2a5acd559d463f3d2576d))
+
+
+
 ## [7.9.2](https://github.com/softwaregroup-bg/ut-config/compare/v7.9.1...v7.9.2) (2021-09-05)
 
 

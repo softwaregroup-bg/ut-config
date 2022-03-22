@@ -1,6 +1,6 @@
 {
   "name": "ut-config",
-  "version": "7.9.2",
+  "version": "7.9.3",
   "main": "index.js",
   "dependencies": {
     "ajv": "8.6.3",
