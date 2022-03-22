@@ -28,7 +28,10 @@ const edit = ({edit, formData, filename, log, stop = true, validate = false}) =>
     if (edit) {
         if (validate && edit.schema) {
             const Ajv = require('ajv');
-            validate = new Ajv().compile(edit.schema)(formData);
+            const addFormats = require('ajv-formats');
+            const ajv = new Ajv();
+            addFormats(ajv);
+            validate = ajv.compile(edit.schema)(formData);
         }
         if (!validate) {
             if (filename) {
