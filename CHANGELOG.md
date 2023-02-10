@@ -1,3 +1,12 @@
+# [7.10.0](https://github.com/softwaregroup-bg/ut-config/compare/v7.9.3...v7.10.0) (2023-02-10)
+
+
+### Features
+
+* configure watch ([0634226](https://github.com/softwaregroup-bg/ut-config/commit/0634226e7e0e88ea1b3f6ac09792cb4bc65caea4))
+
+
+
 ## [7.9.3](https://github.com/softwaregroup-bg/ut-config/compare/v7.9.2...v7.9.3) (2022-03-22)
 
 
