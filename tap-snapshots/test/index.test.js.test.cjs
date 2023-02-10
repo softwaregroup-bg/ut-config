@@ -26,6 +26,7 @@ Object {
   "params": Object {
     "app": "server",
     "method": "debug",
+    "watch": undefined,
   },
   "service": "server",
   "version": undefined,
@@ -53,6 +54,7 @@ Object {
   "params": Object {
     "app": "server",
     "method": "debug",
+    "watch": undefined,
   },
   "service": "server",
   "version": undefined,
