@@ -60,14 +60,15 @@ function mount(parent, m) {
     }
 }
 
-function load({ params, app, method, env, root, version, resolve, config, context, defaultConfig, defaultOverlays } = {}) {
+function load({ params, app, method, env, watch, root, version, resolve, config, context, defaultConfig, defaultOverlays } = {}) {
     const argv = merge([{}, require('minimist')(process.argv.slice(2))], {convert: true});
     const baseConfig = {
         version,
         params: {
             app: process.env.UT_APP || app || argv._[0] || 'server',
             method: process.env.UT_METHOD || method || argv._[1] || 'debug',
-            env: process.env.UT_ENV || env || argv._[2] || 'dev'
+            env: process.env.UT_ENV || env || argv._[2] || 'dev',
+            watch: process.env.UT_WATCH || watch || argv._[3]
         }
     };
     baseConfig.service = baseConfig.params.app;
