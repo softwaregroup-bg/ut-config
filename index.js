@@ -60,6 +60,18 @@ function mount(parent, m) {
     }
 }
 
+function decodeEncv(obj, decrypt) {
+    if (!obj || typeof obj !== 'object') return;
+    for (const key of Object.keys(obj)) {
+        if (key.endsWith('_encv')) {
+            obj[key.slice(0, -5)] = decrypt(obj[key]);
+            delete obj[key];
+        } else {
+            decodeEncv(obj[key], decrypt);
+        }
+    }
+}
+
 function load({ params, app, method, env, watch, root, version, resolve, config, context, defaultConfig, defaultOverlays } = {}) {
     const argv = merge([{}, require('minimist')(process.argv.slice(2))], {convert: true});
     const baseConfig = {
@@ -120,12 +132,20 @@ function load({ params, app, method, env, watch, root, version, resolve, config,
 
     configs.unshift(baseConfig);
 
-    if (!context && !process.env.UT_MASTER_KEY) return merge(configs, mergeOptions);
+    let configfinal = {};
 
-    return template(merge(configs, mergeOptions), {
-        ...context,
-        ...process.env.UT_MASTER_KEY && require('ut-function.cbc')(process.env.UT_MASTER_KEY)
-    });
+    if (!context && !process.env.UT_MASTER_KEY) {
+        configfinal = merge(configs, mergeOptions);
+    } else {
+        configfinal = template(merge(configs, mergeOptions), {
+            ...context,
+            ...process.env.UT_MASTER_KEY && require('ut-function.cbc')(process.env.UT_MASTER_KEY)
+        });
+    }
+    if (process.env.UT_MASTER_KEY) {
+        decodeEncv(configfinal, require('ut-function.cbc')(process.env.UT_MASTER_KEY).decrypt);
+    }
+    return configfinal;
 }
 
 module.exports = {load, edit, merge};
